@@ -1,0 +1,21 @@
+.task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 0 20px 0;
+}
+
+/*.task-container:after{*/
+    /*content: "";*/
+    /*display: table;*/
+    /*clear: both;*/
+/*}*/
+
+.task-title {
+
+}
+
+.task-deadline {
+
+}

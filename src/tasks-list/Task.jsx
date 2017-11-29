@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Task.css';
 
 export default class Task extends Component{
     constructor(props){
@@ -7,9 +8,9 @@ export default class Task extends Component{
 
     render(){
         return(
-            <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.deadline}</h2>
+            <div className="task-container">
+                <div className="task-title">{this.props.title}</div>
+                <div className="task-deadline">{this.props.deadline}</div>
             </div>
         );
     }
