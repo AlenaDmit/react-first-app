@@ -6,16 +6,24 @@
     margin: 0 0 20px 0;
 }
 
-/*.task-container:after{*/
-    /*content: "";*/
-    /*display: table;*/
-    /*clear: both;*/
-/*}*/
-
 .task-title {
+    max-width: 300px;
+    text-align: left;
+}
+
+.task-info {
 
 }
 
 .task-deadline {
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
 
+.task-btn-delete {
+    display: inline-block;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

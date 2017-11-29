@@ -1,4 +1,6 @@
 .taskList-container {
     list-style: none;
-    max-width: 500px;
+    padding: 20px;
+    margin: 0;
+    background-color: white;
 }
