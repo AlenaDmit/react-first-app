@@ -3,9 +3,8 @@ import moment from 'moment';
 import './App.css';
 import TaskList from './tasks-list/TaskList';
 
-let dateNow = moment();
-
-const TodoHeader = function () {
+const TodoHeader = function (props) {
+    let dateNow = moment();
     return (
         <header>
             <div className="header-left">
@@ -13,7 +12,7 @@ const TodoHeader = function () {
                 <div className="header-date">{`${dateNow.format('Do')} of ${dateNow.format('MMM')}`}</div>
             </div>
             <div className="header-right">
-                <div className="header-count-of-tasks">3 tasks</div>
+                <div className="header-count-of-tasks">{props.countTasks} tasks</div>
                 <button className="header-btn-clear">Clear list</button>
             </div>
         </header>
@@ -34,39 +33,14 @@ const AddNewTask = function () {
 export default class App extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            data: [
-                {
-                    id: 1,
-                    title: "Buy milk",
-                    deadline: "01.12.2017",
-                    done: false
-                },
-                {
-                    id: 2,
-                    title: "Go to the cinema",
-                    deadline: "02.12.2017",
-                    done: false
-                },
-                {
-                    id: 3,
-                    title: "To do homework",
-                    deadline: "03.12.2017",
-                    done: false
-                }
-            ]
-        };
     }
+
     render() {
     return (
         <div className="App">
-            {/*<header className="App-header" style={{color: 'red'}}>*/}
-                {/*<img src={logo} className="App-logo" alt="logo" />*/}
-                {/*<h1 className="App-title">Welcome to React</h1>*/}
-            {/*</header>*/}
-            <TodoHeader/>
+            <TodoHeader countTasks={3}/>
             <AddNewTask/>
-            <TaskList data={this.state.data} />
+            <TaskList onChange={this.toggleChange}/>
         </div>
     );
   }
