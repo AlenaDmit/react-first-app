@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import './index.css';
+
 import App from './App';
+
+import './App.css';
+
 
 const render = Component => {
     ReactDOM.render(
@@ -13,6 +16,7 @@ const render = Component => {
     );
 };
 render(App);
+
 
 // Webpack Hot Module Replacement API
 if (module.hot) {

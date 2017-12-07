@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Task from './Task';
+
+import Task from '../Task/Task';
+
 import './TaskList.css';
+
 
 export default class TaskList extends Component {
     constructor(props) {
@@ -52,7 +55,6 @@ export default class TaskList extends Component {
                     done={data[field].done}/>
             </li>
         );
-        // const listItems = this.props.data.map((item) => <Task {{...item}} />);
         return (
             <ul className="taskList-container">
                 {listItems}

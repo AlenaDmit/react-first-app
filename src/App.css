@@ -1,5 +1,8 @@
 body {
     background-color: mediumpurple;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 .App {
@@ -7,53 +10,4 @@ body {
     max-width: 500px;
     padding: 20px;
     box-sizing: border-box;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    border-bottom: 1px solid lightgrey;
-    background-color: #fcfcff;
-}
-
-.header-left {
-    display: block;
-}
-
-.header-right {
-    display: block;
-}
-
-.AddNewTask-container {
-    background-color: white;
-    padding: 20px;
-    border-bottom: 1px solid lightgrey;
-}
-
-.AddNewTask-container:after{
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.AddNewTask-input {
-    border: none;
-    border-bottom: 1px solid lightgrey;
-    outline: none;
-}
-
-.input-container {
-    float: left;
-}
-
-.input-container:before {
-    content: '+';
-    margin: 0 10px 0 0;
-}
-
-.AddNewTask-btn-add {
-    float: right;
 }

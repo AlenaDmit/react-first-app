@@ -1,0 +1,30 @@
+.AddNewTask-container {
+    background-color: white;
+    padding: 20px;
+    border-top: 1px solid lightgrey;
+}
+
+.AddNewTask-container:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.input-container {
+    float: left;
+}
+
+.AddNewTask-input {
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    outline: none;
+}
+
+.input-container:before {
+    content: '+';
+    margin: 0 10px 0 0;
+}
+
+.AddNewTask-btn-add {
+    float: right;
+}
