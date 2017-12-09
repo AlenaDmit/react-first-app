@@ -15,8 +15,8 @@ function reducer(state = initialState, action) {
             return [...state, newTask];
 
         case DELETE_TASK:
-            const index = state.findIndex(todo => todo.id === action.id);
-
+            let index = state.findIndex(todo => todo.id == action.data);
+            console.log(index);
             return [
                 ...state.slice(0, index),   // берём все элементы не включая удаляемый
                 ...state.slice(index + 1)   // и берём все элементы после не включая удаляемый
@@ -29,13 +29,11 @@ function reducer(state = initialState, action) {
             return {...state, c};
 
         case TOGGLE_TASK:
-            if (state.id !== action.data.id) {
-                return state;
-            }
-            const toggleTask = {
-                done: !state.done
-            };
-            return {...state, toggleTask};
+            index = state.findIndex(todo => todo.id == action.data);
+            let nextState = [...state];
+            let toggleTask = nextState[index];
+            toggleTask.done = !toggleTask.done;
+            return nextState;
 
         default:
             return state;

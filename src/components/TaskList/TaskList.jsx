@@ -29,8 +29,9 @@ export default class TaskList extends Component {
                     for={data[field].id}
                     title={data[field].title}
                     deadline={data[field].deadline}
-                    onChange={this.toggleItem(data[field])}
-                    done={data[field].done}/>
+                    done={data[field].done}
+                    onDelete={this.props.onDelete}
+                    onToggle={this.props.onToggle}/>
             </li>
         );
         return (

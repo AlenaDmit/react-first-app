@@ -12,7 +12,13 @@ class Task extends Component {
         }
     }
 
+    handleDelete = () => {
+        this.props.onDelete(this.props.for);
+    };
 
+    handleToggle = () => {
+        this.props.onToggle(this.props.for);
+    };
 
     render() {
         return (
@@ -22,14 +28,14 @@ class Task extends Component {
                     id={`check${this.props.for}`}
                     type="checkbox"
                     defaultChecked={this.props.done}
-                    onChange={this.props.onChange}/>
+                    onChange={this.handleToggle}/>
                 <label
                     className="task-title"
                     htmlFor={`check${this.props.for}`}>{this.props.title}</label>
             </div>
             <div className="task-info">
                 <div className="task-deadline">{this.props.deadline}</div>
-                <button className="task-btn-delete">X</button>
+                <button className="task-btn-delete" onClick={this.handleDelete}>X</button>
             </div>
         </div>)
     }
