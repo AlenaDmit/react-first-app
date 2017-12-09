@@ -23,10 +23,17 @@ function reducer(state = initialState, action) {
             ];
 
         case EDIT_TASK:
-            const c = {
-
-            };
-            return {...state, c};
+            index = state.findIndex(todo => todo.id == action.data);
+            nextState = [...state];
+            let editableTask = nextState[index + 1];
+            if (editableTask == action.data) {
+                let newTask = {
+                    ...state,
+                    title: action.data.title,
+                    deadline: action.data.deadline
+                };
+                return [nextState, newTask];
+            }
 
         case TOGGLE_TASK:
             index = state.findIndex(todo => todo.id == action.data);
