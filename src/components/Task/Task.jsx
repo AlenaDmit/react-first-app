@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Task.css';
 
@@ -35,6 +36,7 @@ class Task extends Component {
             </div>
             <div className="task-info">
                 <div className="task-deadline">{this.props.deadline}</div>
+                <button className="task-btn-edit"><Link to="/edit">E</Link></button>
                 <button className="task-btn-delete" onClick={this.handleDelete}>X</button>
             </div>
         </div>)

@@ -11,15 +11,19 @@ import App from './App';
 import './App.css';
 
 
+import { HashRouter, Route } from 'react-router-dom';
 const store = createStore(reducer, state);
 
 const render = Component => {
     ReactDOM.render(
+        <HashRouter>
         <AppContainer>
-            <Provider store={store}>
-                <Component/>
-            </Provider>
-        </AppContainer>,
+
+                <Provider store={store}>
+                    <Component/>
+                </Provider>
+        </AppContainer>
+        </HashRouter>,
         document.getElementById('root')
     );
 };

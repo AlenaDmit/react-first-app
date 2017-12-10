@@ -35,9 +35,12 @@ export default class TaskList extends Component {
             </li>
         );
         return (
-            <ul className="taskList-container">
-                {listItems}
-            </ul>
+            <div>
+                <ul className="taskList-container">
+                    {listItems}
+                </ul>
+                <div className=""></div>
+            </div>
         );
     }
 }

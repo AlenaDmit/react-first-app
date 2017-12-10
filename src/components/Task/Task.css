@@ -20,7 +20,7 @@
     margin: 0 10px 0 0;
 }
 
-.task-btn-delete {
+.task-btn-delete, .task-btn-edit {
     display: inline-block;
     border-radius: 50%;
     border: none;
