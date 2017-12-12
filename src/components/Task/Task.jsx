@@ -7,10 +7,6 @@ import './Task.css';
 class Task extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            editing: false
-        }
     }
 
     handleDelete = () => {
@@ -19,6 +15,13 @@ class Task extends Component {
 
     handleToggle = () => {
         this.props.onToggle(this.props.for);
+    };
+
+    handleStartEdit = () => {
+        const title = this.props.title;
+        console.log(`${title} from handleStartEdit from Task.jsx`);
+        this.props.onEditStart(this.props.for, this.props.title, this.props.deadline);
+
     };
 
     render() {
@@ -36,7 +39,7 @@ class Task extends Component {
             </div>
             <div className="task-info">
                 <div className="task-deadline">{this.props.deadline}</div>
-                <button className="task-btn-edit"><Link to="/edit">E</Link></button>
+                <button className="task-btn-edit" onClick={this.handleStartEdit}><Link to="/edit">E</Link></button>
                 <button className="task-btn-delete" onClick={this.handleDelete}>X</button>
             </div>
         </div>)

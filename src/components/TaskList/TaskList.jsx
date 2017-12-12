@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Task from '../Task/Task';
 
@@ -31,7 +32,8 @@ export default class TaskList extends Component {
                     deadline={data[field].deadline}
                     done={data[field].done}
                     onDelete={this.props.onDelete}
-                    onToggle={this.props.onToggle}/>
+                    onToggle={this.props.onToggle}
+                    onEditStart={this.props.onEditStart}/>
             </li>
         );
         return (
@@ -39,7 +41,9 @@ export default class TaskList extends Component {
                 <ul className="taskList-container">
                     {listItems}
                 </ul>
-                <div className=""></div>
+                <footer>
+                    <button className="footer-btn"><Link to="/add">Add new task</Link></button>
+                </footer>
             </div>
         );
     }

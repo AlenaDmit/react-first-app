@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
 import reducer from './reducers'
 import state from './state';
@@ -11,18 +12,16 @@ import App from './App';
 import './App.css';
 
 
-import { HashRouter, Route } from 'react-router-dom';
-const store = createStore(reducer, state);
+const store = createStore(reducer, state, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const render = Component => {
     ReactDOM.render(
         <HashRouter>
-        <AppContainer>
-
+            <AppContainer>
                 <Provider store={store}>
                     <Component/>
                 </Provider>
-        </AppContainer>
+            </AppContainer>
         </HashRouter>,
         document.getElementById('root')
     );

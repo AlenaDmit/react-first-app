@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component }from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 
 import './Header.css';
 
 
-function Header(props) {
+export default class Header extends Component{
+    constructor(props) {
+        super(props)
+    }
+
+    onClearTaskList = () => {
+        this.props.onClearTaskList();
+    };
+
+
+    render() {
     let dateNow = moment();
     return (
         <header>
@@ -14,15 +24,13 @@ function Header(props) {
                 <div className="header-date">{`${dateNow.format('Do')} of ${dateNow.format('MMM')}`}</div>
             </div>
             <div className="header-right">
-                <div className="header-count-of-tasks">{Object.keys(props.todos)} tasks</div>
-                <button className="header-btn-clear">Clear list</button>
+                <div className="header-count-of-tasks">{this.props.todos.length} tasks</div>
+                <button className="header-btn-clear" onClick={this.onClearTaskList}>Clear list</button>
             </div>
-        </header>
-    )
-}
+        </header>);
+    }
+};
 
 // Header.propTypes = {
 //
 // };
-
-export default Header;

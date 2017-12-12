@@ -1,4 +1,4 @@
-import {ADD_TASK, DELETE_TASK, EDIT_TASK, TOGGLE_TASK} from '../actions';
+import {ADD_TASK, DELETE_TASK, START_EDIT_TASK, END_EDIT_TASK, TOGGLE_TASK, CLEAR_TASK_LIST} from '../actions';
 
 const initialState = [];
 
@@ -11,36 +11,41 @@ function reducer(state = initialState, action) {
                 deadline: action.data.deadline,
                 done: false
             };
-            console.log('from reducer', state, newTask);
             return [...state, newTask];
 
         case DELETE_TASK:
-            let index = state.findIndex(todo => todo.id == action.data);
-            console.log(index);
+            let index = state.findIndex(todo => todo.id === action.data);
             return [
                 ...state.slice(0, index),   // берём все элементы не включая удаляемый
                 ...state.slice(index + 1)   // и берём все элементы после не включая удаляемый
             ];
 
-        case EDIT_TASK:
-            index = state.findIndex(todo => todo.id == action.data);
+        case START_EDIT_TASK:
+            let indexOfEditableTask = state.findIndex(todo => todo.id === action.id);
+            let nextState = [...state];
+            nextState.forEach(td => td.editable = false);
+            let editableTask = nextState[indexOfEditableTask];
+            editableTask.editable = true;
+            return nextState;
+
+        case END_EDIT_TASK:
+            console.log("action ", action);
             nextState = [...state];
-            let editableTask = nextState[index + 1];
-            if (editableTask == action.data) {
-                let newTask = {
-                    ...state,
-                    title: action.data.title,
-                    deadline: action.data.deadline
-                };
-                return [nextState, newTask];
-            }
+            let editableTaskEnd = nextState.find(td => td.editable === true);
+            if (!editableTaskEnd) return nextState;
+            editableTaskEnd.title = action.todo.title;
+            editableTaskEnd.deadline = action.todo.deadline;
+            return nextState;
 
         case TOGGLE_TASK:
-            index = state.findIndex(todo => todo.id == action.data);
-            let nextState = [...state];
+            index = state.findIndex(todo => todo.id === action.data);
+            nextState = [...state];
             let toggleTask = nextState[index];
             toggleTask.done = !toggleTask.done;
             return nextState;
+
+        case CLEAR_TASK_LIST:
+            return [];
 
         default:
             return state;

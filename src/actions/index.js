@@ -1,7 +1,9 @@
 export const ADD_TASK = 'ADD_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 export const TOGGLE_TASK = 'TOGGLE_TASK';
-export const EDIT_TASK = 'EDIT_TASK';
+export const START_EDIT_TASK = 'START_EDIT_TASK';
+export const END_EDIT_TASK = 'END_EDIT_TASK';
+export const CLEAR_TASK_LIST = 'CLEAR_TASK_LIST';
 
 
 let nextId = 5;
@@ -29,9 +31,22 @@ export function toggleTask(data) {
     }
 }
 
-export function editTask(data) {
+export function startEditTask(id) {
     return {
-        type: EDIT_TASK,
-        data: data
+        type: START_EDIT_TASK,
+        id: id
+    }
+}
+
+export function endEditTask(todo) {
+    return {
+        type: END_EDIT_TASK,
+        todo: todo
+    }
+}
+
+export function clearTaskList() {
+    return {
+        type: CLEAR_TASK_LIST
     }
 }

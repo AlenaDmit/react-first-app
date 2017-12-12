@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 import './AddNewTask.css'
 
@@ -9,35 +10,44 @@ class AddNewTask extends Component {
         super(props);
     };
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-
-        const deadline = event.target.deadline.value;
-        const title = event.target.title.value;
-        console.log('HandleSubmit: ', title, deadline);
-
-        if (title && deadline) {
-            this.props.onAdd(title, deadline);
-        }
-    };
-
-    handleChange = (event) => {
-
-    };
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const deadline = event.target.deadline.value;
+    //     const title = event.target.title.value;
+    //
+    //     if (title && deadline) {
+    //         this.props.onAdd(title, deadline);
+    //     }
+    // };
 
     render() {
-        return (
-            <form className="AddNewTask-container" onSubmit={this.handleSubmit}>
+        const FormAdd = withRouter(({ history }) => (
+            <div className="AddNewTask-container">
                 <div className="input-container">
                     <input
                         className="AddNewTask-input"
+                        id="AddNewTask-input"
                         type="text"
                         name="title"
                         placeholder="Type your task"/>
                 </div>
-                <input type="date" name="deadline"/>
-                <button type="submit" className="AddNewTask-btn-add" >Add task</button>
-            </form>
+                <input id="deadline-input" type="date" name="deadline"/>
+                <button type="submit" className="AddNewTask-btn-add"
+                        onClick={() => {
+                            let title = document.getElementById("AddNewTask-input").value;
+                            let deadline = document.getElementById("deadline-input").value;
+                            if (title && deadline) {
+                                this.props.onAdd(title, deadline);
+                                history.push("/");
+                            }
+                        }}>
+                    Add task
+                </button>
+            </div>
+        ));
+
+        return (
+            <FormAdd/>
         );
     }
 }

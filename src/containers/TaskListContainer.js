@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import {deleteTask, toggleTask, editTask} from '../actions';
+import {deleteTask, toggleTask, startEditTask} from '../actions';
 import TaskList from '../components/TaskList/TaskList';
 
 function mapStateToProps(state) {
@@ -13,7 +13,7 @@ function mapDispatchToProps(dispatch) {
     return {
         onDelete: id => dispatch(deleteTask(id)),
         onToggle: id => dispatch(toggleTask(id)),
-        onEdit: (id, title, deadline) => dispatch(editTask(id, title, deadline))
+        onEditStart: (id, title, deadline) => dispatch(startEditTask(id, title, deadline))
     }
 }
 

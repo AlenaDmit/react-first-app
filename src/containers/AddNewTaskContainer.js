@@ -6,7 +6,6 @@ import AddNewTask from '../components/AddNewTask/AddNewTask';
 function mapDispatchToProps(dispatch) {
     return {
         onAdd: function (title, deadline) {
-            console.log('task container');
             return dispatch(addTask({title: title, deadline: deadline}));
         }
     };
