@@ -1,5 +1,7 @@
 import {ADD_TASK, DELETE_TASK, START_EDIT_TASK, END_EDIT_TASK, TOGGLE_TASK, CLEAR_TASK_LIST} from '../actions';
 
+const _ = require('lodash');
+
 const initialState = [];
 
 function reducer(state = initialState, action) {
@@ -14,14 +16,14 @@ function reducer(state = initialState, action) {
             return [...state, newTask];
 
         case DELETE_TASK:
-            let index = state.findIndex(todo => todo.id === action.data);
+            let index = _.findIndex(state, todo => todo.id === action.data);
             return [
                 ...state.slice(0, index),   // берём все элементы не включая удаляемый
                 ...state.slice(index + 1)   // и берём все элементы после не включая удаляемый
             ];
 
         case START_EDIT_TASK:
-            let indexOfEditableTask = state.findIndex(todo => todo.id === action.id);
+            let indexOfEditableTask = _.findIndex(state, todo => todo.id === action.id);
             let nextState = [...state];
             nextState.forEach(td => td.editable = false);
             let editableTask = nextState[indexOfEditableTask];
@@ -31,14 +33,14 @@ function reducer(state = initialState, action) {
         case END_EDIT_TASK:
             console.log("action ", action);
             nextState = [...state];
-            let editableTaskEnd = nextState.find(td => td.editable === true);
+            let editableTaskEnd = _.find(nextState, td => td.editable === true);
             if (!editableTaskEnd) return nextState;
             editableTaskEnd.title = action.todo.title;
             editableTaskEnd.deadline = action.todo.deadline;
             return nextState;
 
         case TOGGLE_TASK:
-            index = state.findIndex(todo => todo.id === action.data);
+            index = _.findIndex(state, todo => todo.id === action.data);
             nextState = [...state];
             let toggleTask = nextState[index];
             toggleTask.done = !toggleTask.done;

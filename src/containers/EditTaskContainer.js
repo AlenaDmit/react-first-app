@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import {endEditTask} from '../actions';
 import EditTask from '../components/EditTask/EditTask';
 
+const _ = require('lodash');
+
 function mapStateToProps(state) {
-    let editableTask = state.find((td) => td.editable === true);
+    let editableTask = _.find(state, (td) => td.editable === true);
     let props = {
         task: editableTask
     };

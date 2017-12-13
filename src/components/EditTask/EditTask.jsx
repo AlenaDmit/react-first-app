@@ -6,7 +6,6 @@ export default class EditTask extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
             title: props.task ? props.task.title : "",
             deadline: props.task ? props.task.deadline : ""
