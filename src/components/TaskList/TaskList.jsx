@@ -24,7 +24,7 @@ export default class TaskList extends Component {
             </li>
         );
         return (
-            <div>
+            <div className="main">
                 <ul className="taskList-container">
                     {listItems}
                 </ul>

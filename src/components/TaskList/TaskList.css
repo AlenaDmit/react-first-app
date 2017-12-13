@@ -10,3 +10,24 @@ footer {
     background-color: white;
     border-top: 1px solid lightgrey;
 }
+
+@media screen and (max-device-width: 480px) {
+    #root {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .App {
+        height: 100%;
+        /*width: 100%;*/
+        min-width: 350px;
+    }
+
+    .main {
+        height: 80%;
+    }
+
+    .taskList-container {
+        height: 91%;
+    }
+}
