@@ -2,19 +2,19 @@
   {
     "id": 1,
     "title": "Buy milk",
-    "deadline": "01.12.2017",
+    "deadline": "2017-12-01",
     "done": false
   },
   {
     "id": 2,
     "title": "Go to the cinema",
-    "deadline": "02.12.2017",
+    "deadline": "2017-12-02",
     "done": false
   },
   {
     "id": 3,
     "title": "To do homework",
-    "deadline": "03.12.2017",
+    "deadline": "2017-12-03",
     "done": false
   }
 ]

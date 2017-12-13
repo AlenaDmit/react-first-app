@@ -6,7 +6,7 @@ export const END_EDIT_TASK = 'END_EDIT_TASK';
 export const CLEAR_TASK_LIST = 'CLEAR_TASK_LIST';
 
 
-let nextId = 5;
+let nextId = 4;
 
 export function addTask(data) {
     console.log('from action: ', data);
