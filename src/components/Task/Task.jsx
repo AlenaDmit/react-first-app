@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Task.css';
 
 
-class Task extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default class Task extends Component {
 
     handleDelete = () => {
         this.props.onDelete(this.props.for);
@@ -18,10 +16,7 @@ class Task extends Component {
     };
 
     handleStartEdit = () => {
-        const title = this.props.title;
-        console.log(`${title} from handleStartEdit from Task.jsx`);
         this.props.onEditStart(this.props.for, this.props.title, this.props.deadline);
-
     };
 
     render() {
@@ -46,4 +41,8 @@ class Task extends Component {
     }
 }
 
-export default Task;
+Task.propTypes = {
+    onDelete: PropTypes.func.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    onEditStart: PropTypes.func.isRequired
+};

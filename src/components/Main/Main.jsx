@@ -15,7 +15,6 @@ function Main() {
             <Route path="/edit" component={EditTaskContainer}/>
             <Route path="*" component={NotFound}/>
         </Switch>
-
     );
 }
 

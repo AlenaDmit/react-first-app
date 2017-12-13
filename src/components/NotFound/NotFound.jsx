@@ -1,8 +1,11 @@
 import React from 'react';
 
+import './NotFound.css';
+
+
 function NotFound() {
     return (
-        <h1>404 error</h1>
+        <h2 className="not-found">Oops, there isn't current page</h2>
     )
 }
 

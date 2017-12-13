@@ -1,7 +1,6 @@
 .AddNewTask-container {
     background-color: white;
     padding: 20px;
-    border-top: 1px solid lightgrey;
 }
 
 .AddNewTask-container:after{

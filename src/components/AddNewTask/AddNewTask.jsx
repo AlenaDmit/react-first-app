@@ -1,24 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './AddNewTask.css'
 
 
-class AddNewTask extends Component {
-    constructor(props) {
-        super(props);
-    };
-
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const deadline = event.target.deadline.value;
-    //     const title = event.target.title.value;
-    //
-    //     if (title && deadline) {
-    //         this.props.onAdd(title, deadline);
-    //     }
-    // };
+export default class AddNewTask extends Component {
 
     render() {
         const FormAdd = withRouter(({ history }) => (
@@ -52,8 +39,6 @@ class AddNewTask extends Component {
     }
 }
 
-// Form.propTypes = {
-//     onAdd: PropTypes.func.isRequired
-// };
-
-export default AddNewTask;
+AddNewTask.propTypes = {
+    onAdd: PropTypes.func.isRequired
+};

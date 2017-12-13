@@ -6,9 +6,6 @@ import './Header.css';
 
 
 export default class Header extends Component{
-    constructor(props) {
-        super(props)
-    }
 
     onClearTaskList = () => {
         this.props.onClearTaskList();
@@ -31,6 +28,6 @@ export default class Header extends Component{
     }
 };
 
-// Header.propTypes = {
-//
-// };
+Header.propTypes = {
+    onClearTaskList: PropTypes.func.isRequired
+};
