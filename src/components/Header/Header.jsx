@@ -1,11 +1,12 @@
 import React, { Component }from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import { Button, Header } from 'semantic-ui-react';
 
 import './Header.css';
 
 
-export default class Header extends Component{
+export default class HeaderToDo extends Component{
 
     onClearTaskList = () => {
         this.props.onClearTaskList();
@@ -17,17 +18,17 @@ export default class Header extends Component{
     return (
         <header>
             <div className="header-left">
-                <div className="header-weekday">{`${dateNow.format('dddd')},`}</div>
-                <div className="header-date">{`${dateNow.format('Do')} of ${dateNow.format('MMM')}`}</div>
+                <Header as="h3" color="blue" className="header-weekday">{`${dateNow.format('dddd')},`}</Header>
+                <Header as="h4" color="grey" className="header-date">{`${dateNow.format('Do')} of ${dateNow.format('MMM')}`}</Header>
             </div>
             <div className="header-right">
-                <div className="header-count-of-tasks">{this.props.todos.length} tasks</div>
-                <button className="header-btn-clear" onClick={this.onClearTaskList}>Clear list</button>
+                <Header as="h3" color="blue" className="header-count-of-tasks">{this.props.todos.length} tasks</Header>
+                <Button size="small" className="header-btn-clear" onClick={this.onClearTaskList}>Clear list</Button>
             </div>
         </header>);
     }
 };
 
-Header.propTypes = {
+HeaderToDo.propTypes = {
     onClearTaskList: PropTypes.func.isRequired
 };

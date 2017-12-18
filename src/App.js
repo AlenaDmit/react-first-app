@@ -1,4 +1,5 @@
 import React from 'react';
+import { Segment } from 'semantic-ui-react';
 
 import Main from './components/Main/Main';
 import HeaderContainer from './containers/HeaderContainer';
@@ -8,10 +9,10 @@ import './App.css';
 
 function App() {
     return (
-        <div className="App">
+        <Segment.Group className="App">
             <HeaderContainer/>
             <Main/>
-        </div>
+        </Segment.Group>
     );
 }
 

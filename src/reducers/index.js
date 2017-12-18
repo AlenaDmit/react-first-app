@@ -31,7 +31,6 @@ function reducer(state = initialState, action) {
             return nextState;
 
         case END_EDIT_TASK:
-            console.log("action ", action);
             nextState = [...state];
             let editableTaskEnd = _.find(nextState, td => td.editable === true);
             if (!editableTaskEnd) return nextState;

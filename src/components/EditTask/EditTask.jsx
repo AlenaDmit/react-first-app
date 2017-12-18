@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Input, Button } from 'semantic-ui-react';
+import BackToMain from '../../components/BackToMain/BackToMain'
 
 import { Link } from 'react-router-dom';
+
+import '../../components/AddNewTask/AddNewTask.css';
 
 
 export default class EditTask extends Component {
@@ -32,22 +36,28 @@ export default class EditTask extends Component {
 
     render() {
         return (
-            <div className="AddNewTask-container">
-                <div className="input-container">
-                    <input
-                        className="AddNewTask-input"
-                        type="text"
-                        name="title"
-                        onChange={this.handleChangeTitle}
-                        placeholder="Type your task"
-                        value={this.state.title}/>
+            <div>
+                <div className="AddNewTask-container">
+                    <div className="input-container">
+                        <Input
+                            size="small"
+                            className="AddNewTask-input"
+                            type="text"
+                            name="title"
+                            onChange={this.handleChangeTitle}
+                            placeholder="Type your task"
+                            value={this.state.title}/>
+                    </div>
+                    <Input
+                        size="small"
+                        className="edit-input-deadline"
+                        type="date"
+                        name="deadline"
+                        onChange={this.handleChangeDeadline}
+                        value={this.state.deadline}/>
+                    <Link to="/"><Button size="small" color="green" className="AddNewTask-btn-add" onClick={this.handleEndEdit}>Save</Button></Link>
                 </div>
-                <input
-                    type="date"
-                    name="deadline"
-                    onChange={this.handleChangeDeadline}
-                    value={this.state.deadline}/>
-                <button className="AddNewTask-btn-add" onClick={this.handleEndEdit}><Link to="/">Save</Link></button>
+                <BackToMain/>
             </div>);
     }
 }

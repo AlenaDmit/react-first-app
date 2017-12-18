@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Button, Divider } from 'semantic-ui-react'
 
 import Task from '../Task/Task';
 
@@ -29,7 +30,7 @@ export default class TaskList extends Component {
                     {listItems}
                 </ul>
                 <footer>
-                    <button className="footer-btn"><Link to="/add">Add new task</Link></button>
+                    <Link to="/add"><Button primary className="footer-btn">Add new task</Button></Link>
                 </footer>
             </div>
         );

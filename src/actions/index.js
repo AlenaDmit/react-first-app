@@ -9,7 +9,6 @@ export const CLEAR_TASK_LIST = 'CLEAR_TASK_LIST';
 let nextId = 4;
 
 export function addTask(data) {
-    console.log('from action: ', data);
     return {
         type: ADD_TASK,
         id: nextId++,

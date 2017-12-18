@@ -15,3 +15,7 @@ header {
 .header-right {
     display: block;
 }
+
+.header-weekday, .header-count-of-tasks, .header-day {
+    margin: 0;
+}
